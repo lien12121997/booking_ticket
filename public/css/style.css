@@ -74,7 +74,7 @@ a:hover { color: white; }
 	margin-right: 20px;
 }
 #example-one a { 
-	color: #aaa; 
+	color: white; 
 	font-size: 14px; 
 	float: left;
 	padding: 6px 10px 4px 10px;
@@ -361,11 +361,11 @@ p.s-img a:hover{
 }
 .span_1_of_4  p {
 	font-size:0.8125em;
-	color: #666;
+	color: white;
 	line-height: 1.8em;
 }
 p.txt_4{
-	color: #666;
+	color: white;
 	margin-top:2%;
 	font-size:2em;
 }
@@ -428,7 +428,7 @@ p.txt_4{
 	text-align:center;
 }
 .copy p{
-	color:#666;
+	color: white;
 	font-size: 13px;
 }
 .copy p a {
@@ -605,8 +605,8 @@ p.txt_4{
 	width: 30%;
 	margin-left: 3.3%;
 }
-a{
-	color:#888;
+a {
+	color: white;
 	font-size:13px;
 	line-height:1.5em;
 }

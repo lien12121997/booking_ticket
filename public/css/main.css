@@ -94,7 +94,7 @@ ul {list-style: none;}
     background: #42af33 !important;
     color: white;
     font-weight: bold;
-    font-size: 23px !important;
+    font-size: 20px !important;
 }
 .btn-img{padding: 0 !important;}
 .form--img{position: relative;}
@@ -264,9 +264,6 @@ ul {list-style: none;}
     display: none;
 }
 
-
-
-
 @media only screen and (max-width : 992px){
     .social-link{display: none;}
 }
@@ -277,4 +274,22 @@ ul {list-style: none;}
 
 @media only screen and (max-width : 1600px){
     .social-link{font-size: 34px}
+}
+
+/*______________________  Profile _____________________*/
+
+.user_profile h1 {
+    padding-left: 5px;
+}
+.name_profile h2 {
+    padding-left: 15px;
+    padding-bottom: 30px;
+}
+.button_profile {
+    padding-top: 30px;
+    padding-left: 5px;
+}
+.row_profile {
+    padding-bottom: 100px;
+    padding-top: 50px;
 }

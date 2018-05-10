@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1 class="head--title">Change your information</h1>
+  <h1 class="head--title">Change Your Information</h1>
 
     <div class="container-fluid">
       <form action="" method="POST" id="upload" class="pro-update" enctype="multipart/form-data">
@@ -10,28 +10,24 @@
         <div class="row">
           <div class="col-md-12 col-lg-9">
               <div class="form-group">
-                  <div class="product-title">Name</div>
+                  <div class="product-title">Name *</div>
                   <input class="form-control" name="name" value="{{$users -> name}}" />
               </div>
               <div class="form-group">
-                  <div class="product-title">Date of Birth</div>
+                  <div class="product-title">Date of Birth *</div>
                   <input class="form-control" type="date" name="dob" value="{{$users -> dob}}"/>
               </div>
               <div class="form-group">
-                  <div class="product-title">Phone</div>
+                  <div class="product-title">Phone *</div>
                   <input class="form-control" type="number" name="phone" value="{{$users -> phone}}"/>
               </div>
               <div class="form-group">
-                  <div class="product-title">Address</div>
+                  <div class="product-title">Address *</div>
                   <input class="form-control" type="text" name="address" value="{{$users -> address}}"/>
               </div>
               <div class="form-group">
-                  <div class="product-title">Email</div>
+                  <div class="product-title">Email *</div>
                   <input class="form-control" name="email" value="{{$users -> email}}"/>
-              </div>
-              <div class="form-group">
-                  <div class="product-title">Password</div>
-                  <input class="form-control" type="password" name="password" value="{{$users -> password}}"/>
               </div>
           </div>
           <div class="col-lg-3 col-right">
@@ -39,7 +35,7 @@
               <div class="form-group form--img">
                 <input type="file" name="file" class="file" id="imageUpload" multiple onchange="previewImg(event);">
                 <button class="browse btn btn-img" type="button">
-                  <img src="{{ asset('images/movie.png') }}" width="100px" height="100px">
+                  <img src="{{ asset('images/Layer2.png') }}" width="100px" height="100px">
                 </button>
               </div>
               <div class="img--product box-preview-img"></div>
