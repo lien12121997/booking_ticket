@@ -4,7 +4,7 @@
 			<div class="footer-top">
 				<div class="col_1_of_4 span_1_of_4">
 					<div class="footer-nav">
-		                <img src="{{asset('images/455425641.jpg')}}" alt="">
+		                <img src="{{asset('images/flim2.png')}}" alt="">
 		             </div>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">

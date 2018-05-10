@@ -354,7 +354,6 @@ p.s-img a:hover{
 .col_1_of_4:first-child { margin-left: 0; } 
 .span_1_of_4 {
 	width: 22%;
-	padding: 1.5%;
 }
 .social img:hover {
 	opacity:0.7;

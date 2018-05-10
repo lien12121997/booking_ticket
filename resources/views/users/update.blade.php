@@ -22,12 +22,12 @@
                   <input class="form-control" type="number" name="phone" value="{{$users -> phone}}"/>
               </div>
               <div class="form-group">
-                  <div class="product-title">Address *</div>
-                  <input class="form-control" type="text" name="address" value="{{$users -> address}}"/>
-              </div>
-              <div class="form-group">
                   <div class="product-title">Email *</div>
                   <input class="form-control" name="email" value="{{$users -> email}}"/>
+              </div>
+              <div class="form-group">
+                  <div class="product-title">Address *</div>
+                  <input class="form-control" type="text" name="address" value="{{$users -> address}}"/>
               </div>
           </div>
           <div class="col-lg-3 col-right">
