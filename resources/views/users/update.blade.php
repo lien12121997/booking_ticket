@@ -34,18 +34,18 @@
               <input id="pac-input" class="controls map-input" type="text">
               <div id="map" class="map"></div>
           </div>
-          <div class="col-lg-3 col-right">
+          <div class="col-lg-3 col-right right-image">
             <div class="add--img">
               <div class="form-group form--img">
                 <input type="file" name="file" class="file" id="imageUpload" multiple onchange="previewImg(event);">
                 <button class="browse btn btn-img" type="button">
-                  <img src="{{ asset('images/Layer2.png') }}" width="100px" height="100px">
+                  <img src="{{ asset('images/Layer2.png') }}">
                 </button>
               </div>
-              <div class="img--product box-preview-img"></div>
               <div class="form-group form--img">
+                <div class="img--product box-preview-img"></div>
                 <div class="img--product">
-                  <img id="thumb" src="{{asset('images/'.$users->avar)}}" width="100px" height="100px" />
+                  <img id="thumb" src="{{asset('images/'.$users->avar)}}" />
                 </div>
               </div>
               <button class="btn btn-submit btn-update--pro" type="submit">Update</button>
