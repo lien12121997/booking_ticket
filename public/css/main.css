@@ -293,6 +293,15 @@ ul {list-style: none;}
     padding-bottom: 100px;
     padding-top: 50px;
 }
+.map-input {
+    padding-left: 20px;
+    top: 10px !important; 
+    height: 29px; 
+    width: 65%;
+}
+.map {
+    height: 300px
+}
 
 /*______________________  Footer _____________________*/
 

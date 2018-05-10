@@ -27,8 +27,12 @@
               </div>
               <div class="form-group">
                   <div class="product-title">Address *</div>
-                  <input class="form-control" type="text" name="address" value="{{$users -> address}}"/>
+                  <input class="form-control" type="text" name="address" id="location" value="{{$users -> address}}" />
               </div>
+              <input name="lat" id="lat" type="hidden">
+              <input name="lng" id="lng" type="hidden">
+              <input id="pac-input" class="controls map-input" type="text">
+              <div id="map" class="map"></div>
           </div>
           <div class="col-lg-3 col-right">
             <div class="add--img">
@@ -51,7 +55,8 @@
       <form>
             <!-- /.container-fluid -->
   </div>
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVfYmJDDq07yPebJwJHN_CSmMRcj3AiUs&libraries=places&callback=initMapadd"></script>
+<script type="text/javascript" src="{{ asset('js/google_map.js') }}"></script>
 @endsection
 
 <style type="text/css">
