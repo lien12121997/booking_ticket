@@ -43,8 +43,7 @@
                 </button>
               </div>
               <div class="form-group form--img">
-                <div class="img--product box-preview-img"></div>
-                <div class="img--product">
+                <div class="img--product box-preview-img">
                   <img id="thumb" src="{{asset('images/'.$users->avar)}}" />
                 </div>
               </div>
