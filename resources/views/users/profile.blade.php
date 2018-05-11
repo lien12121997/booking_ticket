@@ -64,4 +64,46 @@
   	</div>
 </div>
 
+
+<div class="row">
+  	<div class="col-md-12 col-sm-12 col-xs-12 row_profile">
+	    <div class="x_panel transactions-profile">
+		    <div class="x_title name_profile">
+		        <div class="clearfix"></div>
+		    </div>
+
+		    <h2>TRANSACTIONS HISTORY</h2>
+		    <div class="x_content">
+		        <table class="table table-hover">
+		        	<tr style="font-weight: bold;" class="success">
+		        		<td>No</td>
+		        		<td>Transaction Time</td>
+		        		<td>Movie</td>
+		        		<td>Image</td>
+		        		<td>Phòng Chiếu</td>
+		        		<td>Chất Lượng</td>
+		        		<td>Khung Giờ </td>
+		        		<td>Số Ghế</td>
+		        		<td>Price</td>
+		        	</tr>
+
+		        	@foreach($transactions as $item)
+		        	<tr>
+		        		<td>{{ $i++ }}</td>
+		        		<td>{{ $item -> date }}</td>
+		        		<td>{{ $item -> phim }}</td>
+		        		<td><img src="{{ asset('images/'.$item -> img)}}" width="100px"></td>
+		        		<td>{{ $item -> phongchieu }}</td>
+		        		<td>{{ $item -> chatluong }}</td>
+		        		<td>{{ $item -> start }} - {{ $item -> end }}</td>
+		        		<td>{{ $item -> so_ghe }}</td>
+		        		<td>{{ ($item -> price)/($item -> qty) }} VNĐ</td>
+		        	</tr>
+		        	@endforeach	
+		        </table>
+		    </div>
+	    </div>
+  	</div>
+</div>
+
 @endsection

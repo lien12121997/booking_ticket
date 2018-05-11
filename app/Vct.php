@@ -8,6 +8,6 @@ class Vct extends Model
 {
 	protected $table ='vct';
     protected $fillable = [
-        'id_ve', 'so_ghe'
+        'id_ve', 'id_lichchieu', 'so_ghe'
     ];
 }

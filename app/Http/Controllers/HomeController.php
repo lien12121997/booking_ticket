@@ -7,7 +7,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use DB;
 use App\User;
 use App\Phim;
 use App\Lichchieu;
@@ -16,6 +15,7 @@ use App\Chatluong;
 use App\Ve;
 use App\Vct;
 use App\Tintuc;
+use DB;
 
 class HomeController extends Controller
 {
@@ -55,16 +55,16 @@ class HomeController extends Controller
 
     public function booking($id)
     {
-        $cachieu = Cachieu::find($id);
+        $lichchieu = Lichchieu::find($id);
+        $cachieu = Cachieu::all();
         $users = Auth::user();
         $phim = Phim::all();
-        $lichchieu = Lichchieu::all();
         $chatluong = Chatluong::all();
         $datve = DB::table('lich_chieu')->join('phim','phim.id','=','lich_chieu.id_phim')
                                 ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
                                 ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
                                 ->select('phim.*','lich_chieu.*','ca_chieu.*','chat_luong.*')
-                                ->where('lich_chieu.id_cachieu','=', $id)->get();
+                                ->where('lich_chieu.id','=', $id)->get();
         return view('fontend.booking', compact('cachieu','users','phim','lichchieu','chatluong','datve'));
     }
 
@@ -79,6 +79,7 @@ class HomeController extends Controller
         foreach ($req -> so_ghe as $ghe) {
             $vct = new Vct();
             $vct -> id_ve = $ve -> id;
+            $vct -> id_lichchieu = $req -> id_lichchieu;
             $vct -> so_ghe = $ghe;
             $vct -> save();
         }
@@ -86,10 +87,31 @@ class HomeController extends Controller
 
     }
 
+    public function ajaxBooking($id)
+    {
+        $lichchieu = Lichchieu::find($id);
+        $book = DB::table('vct')->join('lich_chieu','vct.id_lichchieu','=','lich_chieu.id')
+                                ->where('lich_chieu.id','=', $id)->pluck('vct.so_ghe');
+        $ghe = json_encode($book);
+
+        return Response::json($ghe, 200);
+    }
+
     public function user(Request $request, $id)
     {
+        $i = 1;
         $users = Auth::user();
-        return view('users.profile',compact('users'));
+        $transactions = DB::table('ve', 'lich_chieu')
+            ->join('vct','vct.id_ve','=','ve.id')
+            ->join('lich_chieu','lich_chieu.id','=','ve.id_lichchieu')    
+            ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
+            ->join('phim','phim.id','=','lich_chieu.id_phim')
+            ->join('phong_chieu','phong_chieu.id','=','lich_chieu.id_phongchieu')
+            ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
+            ->select('ve.*','lich_chieu.*','vct.so_ghe','chat_luong.name as chatluong','phim.img', 'phim.name as phim','phong_chieu.name as phongchieu','ca_chieu.*')
+            ->where('ve.id_user','=', $id)->get();
+
+        return view('users.profile',compact('users', 'transactions','i'));
     }
 
     public function getUpdateUser($id)
@@ -97,7 +119,6 @@ class HomeController extends Controller
         $users=User::find($id);
         return view('users.update',['users'=>$users]);
     }
-
 
     public function postUpdateUser(Request $request, $id)
     {
@@ -156,11 +177,10 @@ class HomeController extends Controller
     }
 
     //Contact Home
-     public function getContact()
+    public function getContact()
     {
         return view('fontend.contact');
     }
-
 
     public function postContact(Request $request)
     {
@@ -185,5 +205,4 @@ class HomeController extends Controller
         });
         return redirect('contact')-> with('successfull', 'Gửi mail Thành công!');
     }
-    
 }

@@ -327,6 +327,10 @@ ul {list-style: none;}
 .update-pass label {
     padding-bottom: 10px;
 }
+.transactions-profile h2 {
+    padding-bottom: 50px;
+    font-weight: bold;
+}
 
 /*______________________  Footer _____________________*/
 

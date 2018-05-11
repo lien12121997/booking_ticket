@@ -19,6 +19,7 @@ class Ve extends Migration
             $table->unsignedInteger('id_lichchieu');
             $table->double('qty');
             $table->double('price');
+            $table->timestamp('date');
             $table->rememberToken();
             $table->timestamps();
         });

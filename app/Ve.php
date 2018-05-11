@@ -8,6 +8,6 @@ class Ve extends Model
 {
 	protected $table ='ve';
     protected $fillable = [
-        'id_user', 'id_lichchieu', 'qty', 'price'
+        'id_user', 'id_lichchieu', 'qty', 'price' , 'date'
     ];
 }
