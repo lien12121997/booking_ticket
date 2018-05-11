@@ -65,7 +65,6 @@
 
 				<div class="flex-col size2">
 					<span class="txt1 p-b-20"> Lets Talk </span>
-
 					<span class="txt3"> +1 800 1236879 </span>
 				</div>
 			</div>
@@ -77,11 +76,11 @@
 
 				<div class="flex-col size2">
 					<span class="txt1 p-b-20"> General Support </span>
-
 					<span class="txt3"> contact@example.com </span>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 @endsection
