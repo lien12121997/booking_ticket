@@ -15,7 +15,9 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pushy.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/contact-util.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">

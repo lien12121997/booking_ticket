@@ -15,7 +15,8 @@ Route::get('home', 'HomeController@index');
 Route::get('item/{id}', 'HomeController@item');
 Route::get('booking/{id}', 'HomeController@booking');
 Route::post('booking', 'HomeController@postInsertBooking')->name('booking');
-
+Route::get('contact', 'HomeController@getContact');
+Route::post('contact', 'HomeController@postContact');
 
 
 Route::get('user/register', 'Auth\LoginController@getRegister');
@@ -127,14 +128,6 @@ Route::group(['prefix'=>'ve'],function(){
 Route::group(['prefix'=>'vct'],function(){
 		Route::get('list','vctController@getList');
 	});
-
-
-
-
-
-
-
-
 
 Auth::routes();
 

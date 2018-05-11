@@ -10,7 +10,7 @@
                    <li class="current_page_item"><a href="{{url('home')}}">Home</a></li>
                    <li><a href="#movie" class="tab-menu-click">Movies</a></li>
                    <li><a href="#event" class="tab-menu-click">Events</a></li>
-                   <li><a href="{{url('home')}}">Contact</a></li>
+                   <li><a href="{{url('contact')}}">Contact</a></li>
                    @guest
                     <li style="border-right: 1px solid white"><a href="{{url('user/login')}}">Login</a></li>
                     <li><a href="{{url('user/register')}}">Register</a></li>
@@ -28,7 +28,7 @@
                                 <li class="pushy-link"><a href="#">Home</a></li>
                                 <li class="pushy-link"><a href="#">Movies</a></li>
                                 <li class="pushy-link"><a href="#">Events</a></li>
-                                <li class="pushy-link"><a href="#">Contact</a></li>
+                                <li class="pushy-link"><a href="{{url('contact')}}">Contact</a></li>
                                 @guest
                                 <li class="pushy-link"><a href="{{url('user/login')}}">Login</a></li>
                                 <li class="pushy-link"><a href="{{url('user/register')}}">Register</a></li>

@@ -153,5 +153,40 @@ class HomeController extends Controller
         $users -> save();
         return redirect('profile/'.$id);
     }
+
+    //Contact Home
+     public function getContact()
+    {
+        return view('fontend.contact');
+    }
+
+
+    public function postContact()
+    {
+        $this -> validate( $request,
+            [
+                'passwordOld' => 'required',
+                'passwordNew' => 'required|min:6',
+            ],
+            [
+                'passwordOld.required' => 'Please enter the Current Password!',
+                'passwordNew.required' => 'Please enter the New Password!',
+                'passwordNew.min' => 'Passwords must contain at least 6 characters',
+            ]); 
+
+        if(!(Hash::check($request -> passwordOld, User::find($id) -> password )))
+        {
+            return redirect('updatePass/'.$id) -> with('error','Your current password does not matches with the password you provided. Please try again.');
+        }
+        else if (strcmp($request -> passwordOld, $request -> passwordNew) == 0) 
+        {
+            return redirect('updatePass/'.$id) -> with('error', 'New Password cannot be same as your current password. Please choose a different password.');
+        }
+        
+        $users = User::find($id);
+        $users -> password =  bcrypt($request -> passwordNew);
+        $users -> save();
+        return redirect('profile/'.$id);
+    }
     
 }
