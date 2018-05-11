@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use DB;
 use App\User;
 use App\Phim;
@@ -161,32 +162,28 @@ class HomeController extends Controller
     }
 
 
-    public function postContact()
+    public function postContact(Request $request)
     {
         $this -> validate( $request,
             [
-                'passwordOld' => 'required',
-                'passwordNew' => 'required|min:6',
+                'email' => 'required|email',
             ],
             [
-                'passwordOld.required' => 'Please enter the Current Password!',
-                'passwordNew.required' => 'Please enter the New Password!',
-                'passwordNew.min' => 'Passwords must contain at least 6 characters',
+                'email.required' => 'Please enter the New Email!',
+                'email.email' => 'Your email address is invalid. Please enter a valid address!',
             ]); 
 
-        if(!(Hash::check($request -> passwordOld, User::find($id) -> password )))
-        {
-            return redirect('updatePass/'.$id) -> with('error','Your current password does not matches with the password you provided. Please try again.');
-        }
-        else if (strcmp($request -> passwordOld, $request -> passwordNew) == 0) 
-        {
-            return redirect('updatePass/'.$id) -> with('error', 'New Password cannot be same as your current password. Please choose a different password.');
-        }
-        
-        $users = User::find($id);
-        $users -> password =  bcrypt($request -> passwordNew);
-        $users -> save();
-        return redirect('profile/'.$id);
+        $this->data['firstName'] = $request -> firstName;
+        $this->data['lastName'] = $request -> lastName;
+        $this->data['phone'] = $request -> phone;
+        $this->data['messagess'] = $request -> message;
+
+        $email = $request -> email;
+        Mail::send('fontend.message_contact', $this->data, function ($message) use ($email) {
+            $message->from($email)->subject('Thư Điện Tử');
+            $message->to('lannhi2208b@gmail.com');
+        });
+        return redirect('contact')-> with('successfull', 'Gửi mail Thành công!');
     }
     
 }

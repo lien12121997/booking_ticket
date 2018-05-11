@@ -3,8 +3,24 @@
 @section('content')
 
 <div class="container-contact100">
+	@if(count($errors) > 0)
+    <div class="alert-contact alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    
+    @if(session('successfull'))
+        <div class="alert-contact alert alert-success">
+            {{session('successfull')}}      
+        </div>
+    @endif
 	<div class="wrap-contact100">
-		<form class="contact100-form validate-form" method="POST" action="{{ asset('home/sendmail') }}">
+		<form class="contact100-form validate-form" method="POST" action="">
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
 			<span class="contact100-form-title">
 				Send Us A Message
@@ -12,11 +28,11 @@
 
 			<label class="label-input100" for="first-name">Tell us your name *</label>
 			<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-				<input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
+				<input id="first-name" class="input100" type="text" name="firstName" placeholder="First name">
 				<span class="focus-input100"></span>
 			</div>
 			<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-				<input class="input100" type="text" name="last-name" placeholder="Last name">
+				<input class="input100" type="text" name="lastName" placeholder="Last name">
 				<span class="focus-input100"></span>
 			</div>
 
@@ -34,12 +50,13 @@
 
 			<label class="label-input100" for="message">Message *</label>
 			<div class="wrap-input100 validate-input" data-validate = "Message is required">
-				<textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
+				<textarea id="message" class="input100" name="message" placeholder="Write us a message">
+				</textarea>
 				<span class="focus-input100"></span>
 			</div>
 
 			<div class="container-contact100-form-btn">
-				<button class="contact100-form-btn" value="{{ csrf_token() }}">
+				<button class="contact100-form-btn" value="{{ csrf_token() }}" type="submit">
 					Send Message
 				</button>
 			</div>

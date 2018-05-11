@@ -227,7 +227,7 @@ ul {list-style: none;}
     font-size: 23px !important;
     width: 50%;
     position: relative;
-    background: #FF0040;
+    background: crimson; /*#FF0040*/
     color: #fff;
     text-align: center;
     padding: 1em 2em;
@@ -238,7 +238,7 @@ ul {list-style: none;}
  position: absolute;
  display: block;
  bottom: -1em;
- border: 1.5em solid #FF0040;
+ border: 1.5em solid crimson;
  z-index: -1;
 }
 .ribbon:before {
@@ -256,7 +256,7 @@ ul {list-style: none;}
  position: absolute;
  display: block;
  border-style: solid;
- border-color: #FE2E64 transparent transparent transparent;
+ border-color: crimson transparent transparent transparent;
  bottom: -1em;
 }
 .ribbon .ribbon-content:before {
@@ -332,4 +332,10 @@ ul {list-style: none;}
 
 .textcontact {
     padding-left: 20px
+}
+
+/*______________________  Contact _____________________*/
+
+.alert-contact {
+    width: 100%;
 }
