@@ -28,7 +28,7 @@ $(function() {
               $('.errorLogin').show().text(data.message.errorlogin[0]);
             }
           } else {
-            window.location.href = "http://localhost:8080/booking_ticket/public/home"
+            window.location.href = "http://localhost/booking_ticket/public/home"
           }
         }
       });

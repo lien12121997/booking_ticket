@@ -28,6 +28,9 @@ Route::get('user/logout', 'Auth\LoginController@logout');
 Route::get('profile/{id}','HomeController@user');
 Route::get('updateUser/{id}','HomeController@getUpdateUser');
 Route::post('updateUser/{id}','HomeController@postUpdateUser');
+Route::get('updatePass/{id}','HomeController@getUpdatePass');
+Route::post('updatePass/{id}','HomeController@postUpdatePass');
+
 
 
 Route::group(['prefix'=>'cachieu'],function(){

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use DB;
 use App\User;
 use App\Phim;
@@ -111,7 +112,44 @@ class HomeController extends Controller
         $users -> phone = $request -> phone;
         $users -> address = $request -> address;
         $users -> email = $request -> email;
-        $users -> password = $request -> password;
+        $users -> lat = $request -> lat;
+        $users -> lng = $request -> lng;
+        $users -> save();
+        return redirect('profile/'.$id);
+    }
+
+    //Update Password
+     public function getUpdatePass($id)
+    {
+        $users = User::find($id);
+        return view('users.updatepass',['users'=>$users]);
+    }
+
+
+    public function postUpdatePass(Request $request, $id)
+    {
+        $this -> validate( $request,
+            [
+                'passwordOld' => 'required',
+                'passwordNew' => 'required|min:6',
+            ],
+            [
+                'passwordOld.required' => 'Please enter the Current Password!',
+                'passwordNew.required' => 'Please enter the New Password!',
+                'passwordNew.min' => 'Passwords must contain at least 6 characters',
+            ]); 
+
+        if(!(Hash::check($request -> passwordOld, User::find($id) -> password )))
+        {
+            return redirect('updatePass/'.$id) -> with('error','Your current password does not matches with the password you provided. Please try again.');
+        }
+        else if (strcmp($request -> passwordOld, $request -> passwordNew) == 0) 
+        {
+            return redirect('updatePass/'.$id) -> with('error', 'New Password cannot be same as your current password. Please choose a different password.');
+        }
+        
+        $users = User::find($id);
+        $users -> password =  bcrypt($request -> passwordNew);
         $users -> save();
         return redirect('profile/'.$id);
     }

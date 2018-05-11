@@ -19,7 +19,7 @@
 		          	</div>
 		        </div>
 
-		        <div class="col-md-8 col-sm-8 col-xs-12">
+		        <div class="col-md-8 col-sm-8 col-xs-12 profile_right">
 		          	<div class="user_profile" role="tabpanel" data-example-id="togglable-tabs">
 		            	<h1>Information</h1>
 			            <div style="margin-top: 30px;">
@@ -47,10 +47,12 @@
 			                    </tr>
 			                  	</thead>
 			                </table>
-
 			                <div class="col-md-12 button_profile">
 								<a href="{{asset('updateUser/'.$users->id)}}">
-									<button class="btn-submit">Change</button>
+									<button class="btn-submit"> Change Information</button>
+								</a>
+								<a href="{{asset('updatePass/'.$users->id)}}">
+									<button class="btn-submit">Change Password</button>
 								</a>
 							</div>
 			            </div>
