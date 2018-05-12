@@ -20,9 +20,9 @@ Route::post('contact', 'HomeController@postContact');
 
 Route::get('user/register', 'Auth\LoginController@getRegister');
 Route::post('user/register', 'Auth\LoginController@postRegister');
-Route::get('user/login', 'Auth\LoginController@getLogin');
-Route::post('user/login', 'Auth\LoginController@postLogin');
 Route::get('user/logout', 'Auth\LoginController@logout');
+Route::get('login', 'Auth\LoginController@getLogin');
+Route::post('login', 'Auth\LoginController@postLogin');
 
 
 Route::get('profile/{id}','HomeController@user');

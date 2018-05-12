@@ -54,7 +54,7 @@ class LoginController extends Controller
         $users -> email = $request -> email;
         $users -> password = $request -> password;
         $users -> save();
-        return redirect('user/login');
+        return redirect('login');
 
     }
     
@@ -109,6 +109,6 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
         Auth::logout();
-        return redirect('user/login');
+        return redirect('login');
     }
 }

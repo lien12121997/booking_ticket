@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            <p>Already have an account? <a href="{{url('user/login')}}" class="text-info m-l-5"><b>Sign In</b></a></p>
+                            <p>Already have an account? <a href="{{url('login')}}" class="text-info m-l-5"><b>Sign In</b></a></p>
                         </div>
                     </div>
                 </form>

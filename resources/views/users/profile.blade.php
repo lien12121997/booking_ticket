@@ -74,8 +74,8 @@
 
 		    <h2>TRANSACTIONS HISTORY</h2>
 		    <div class="x_content">
-		        <table class="table table-hover">
-		        	<tr style="font-weight: bold;" class="success">
+		        <table class="table table-hover" style="border-radius: 10px;">
+		        	<tr class="transactions-tr">
 		        		<td>No</td>
 		        		<td>Transaction Time</td>
 		        		<td>Movie</td>
@@ -88,7 +88,7 @@
 		        	</tr>
 
 		        	@foreach($transactions as $item)
-		        	<tr>
+		        	<tr class="transactions-td">
 		        		<td>{{ $i++ }}</td>
 		        		<td>{{ $item -> date }}</td>
 		        		<td>{{ $item -> phim }}</td>
