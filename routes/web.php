@@ -17,6 +17,7 @@ Route::get('booking/{id}', 'HomeController@booking');
 Route::post('booking', 'HomeController@postInsertBooking')->name('booking');
 Route::get('contact', 'HomeController@getContact');
 Route::post('contact', 'HomeController@postContact');
+Route::post('search', 'HomeController@postSearch');
 
 Route::get('user/register', 'Auth\LoginController@getRegister');
 Route::post('user/register', 'Auth\LoginController@postRegister');

@@ -116,7 +116,7 @@ class HomeController extends Controller
 
     public function getUpdateUser($id)
     {
-        $users=User::find($id);
+        $users = User::find($id);
         return view('users.update',['users'=>$users]);
     }
 
@@ -204,5 +204,15 @@ class HomeController extends Controller
             $message->to('lannhi2208b@gmail.com');
         });
         return redirect('contact')-> with('successfull', 'Gửi mail Thành công!');
+    }
+
+    //Search Home
+    public function postSearch(Request $request)
+    {
+        $users = Auth::user();
+        $tintuc = Tintuc::all();
+        $search_key = $request -> search_name;
+        $search_key = Phim::where('name','like',"%$search_key%")->get();
+        return view('home_search', compact('users', 'search_key', 'tintuc'));
     }
 }

@@ -336,14 +336,19 @@ ul {list-style: none;}
    background-color: #393939; 
    color: #00ad5f;
    text-transform: uppercase;
-   padding-bottom: 20px !important;
-   padding-top: 20px !important;
 }
 .transactions-td td {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
     background-color: #222222;
     color: #808080;
+}
+.transactions-table {
+    border-radius: 10px;
+    text-align: center;
+}
+.transactions-table tr td {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 24px !important;
 }
 
 /*______________________  Footer _____________________*/

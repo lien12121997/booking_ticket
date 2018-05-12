@@ -16,7 +16,7 @@
             </div>
 
             <div class="row tab-film" id="tab-title1">
-                @foreach($phim as $phim)
+                @foreach($search_key as $phim)
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="box-img">
                         <a href="{{url('item/'.$phim->id)}}">
@@ -34,7 +34,7 @@
             </div>
 
             <div class="row tab-film" id="tab-title2">
-                @foreach($film as $film)
+                @foreach($search_key as $film)
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="box-img">
                         <a href="{{url('item/'.$film->id)}}">
@@ -113,8 +113,5 @@
         actTab($('.group li:first-child'));
     }
     
-    
 </script>
-
-
 @endsection

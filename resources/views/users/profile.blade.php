@@ -13,8 +13,11 @@
 		        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
 		          	<div class="profile_img">
 			            <div id="crop-avatar">
-			              <!-- Current avatar -->
-			              <img class="img-responsive avatar-view" src="{{asset('images/'.$users->avar)}}" alt="Avatar" title="Change the avatar">
+			            @if(!empty($users->avar))
+			              	<img class="img-responsive avatar-view" src="{{asset('images/'.$users->avar)}}">
+			            	@else
+			              	<img class="img-responsive avatar-view" src="{{asset('images/user1.png')}}">
+			            @endif
 			            </div>
 		          	</div>
 		        </div>
@@ -74,16 +77,16 @@
 
 		    <h2>TRANSACTIONS HISTORY</h2>
 		    <div class="x_content">
-		        <table class="table table-hover" style="border-radius: 10px;">
+		        <table class="table table-hover transactions-table">
 		        	<tr class="transactions-tr">
 		        		<td>No</td>
 		        		<td>Transaction Time</td>
 		        		<td>Movie</td>
 		        		<td>Image</td>
-		        		<td>Phòng Chiếu</td>
-		        		<td>Chất Lượng</td>
-		        		<td>Khung Giờ </td>
-		        		<td>Số Ghế</td>
+		        		<td>Room</td>
+		        		<td>Quality</td>
+		        		<td>Showtime</td>
+		        		<td>Seats</td>
 		        		<td>Price</td>
 		        	</tr>
 

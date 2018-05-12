@@ -48,11 +48,12 @@
             <div class="h-logo">
                 <a href="{{url('home')}}"><img src="{{ asset('images/logo.png') }}" alt=""/></a>
             </div>
-            <form action="#" id="reservation-form">
+            <form action="search" id="reservation-form" method="post">
                 <fieldset>
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="field">
                         <label>Find Movies:</label>
-                        <input class="form-search " type="text" name="key">
+                        <input class="form-search " type="text" name="search_name" >
                         <button class="btn-search" type="search">Search</button>
                     </div>
                 </fieldset>

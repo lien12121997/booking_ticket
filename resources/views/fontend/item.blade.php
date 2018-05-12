@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="main-home">
+    <div class="row" id="search1"></div>
     <div class="row">
         @foreach($phim as $phim)
         <div class="col-md-6">
