@@ -44,7 +44,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<ul class="book-right">
 					<li>: {{$datve->name}}</li>
 					<input type="hidden" name="id_user" value="{{$users->id}}">
-					<input type="hidden" name="id_lichchieu" value="{{$datve->id}}">
+					<input type="hidden" id="id-lichchieu" name="id_lichchieu" value="{{$datve->id}}">
 					<li>: <span>April 3, 21:00</span></li>
 					<li>: <textarea id="counter" name="qty"></textarea></li>
 					<li>: <b><i>$</i><textarea id="total" name="price"></textarea></b></li>
@@ -66,7 +66,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				$(document).ready(function() {
 					var $cart = $('#selected-seats'), //Sitting Area
 					$counter = $('#counter'), //Votes
-					$total = $('#total'); //Total money
+					$total = $('#total'), //Total money
+					id = document.getElementById("id-lichchieu").value;
 					
 					var sc = $('#seat-map').seatCharts({
 						map: [  //Seating chart
@@ -124,7 +125,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						}
 					});
 					//sold seat
-					sc.get(['1_2', '4_4','4_5','6_6']).status('unavailable');
+					$.ajax({
+                        type: 'GET',
+                        url: '../showGhe/' +id,
+                        cache: false,
+                        data: {"id": id},
+                        dataType: 'json',
+                        success: function (response) {
+                            console.log(id);
+                            console.log(response);
+                            var array = response;
+                            console.log(array);
+                            array.forEach(function(element) {
+                              console.log(element);
+                              sc.get([element]).status('unavailable');
+                            });                    
+                        }
+                    });
 						
 				});
 				//sum total money

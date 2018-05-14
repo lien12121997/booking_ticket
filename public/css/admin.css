@@ -1,0 +1,42 @@
+.thumbnail {
+    height: auto!important ;
+}
+.thumbnail .image {
+    height: auto!important; 
+}
+
+.product_gallery a img {
+    margin-top: 0px!important;
+    height: 130px;
+}
+.product_gallery a {
+    height: auto!important;
+}
+
+/*__________________________Flim_____________________________*/
+
+.box-preview-img img {
+	width: 85%;
+    padding-top: 20px;
+}
+.box-preview-img input {
+	display: none !important;
+}
+.add--img {
+	padding-left: 20%;
+}
+.btn-action a {
+	color: white;
+	font-weight: bold;
+}
+.purple {
+	background: #007700;
+	padding: 10px;
+}
+.red {
+	background: #CC0000;
+	padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

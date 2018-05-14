@@ -36,21 +36,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $phim = DB::table('phim')->where('tinh_trang','=', '1')->get();
-        $film = DB::table('phim')->where('tinh_trang','=', '0')->get();
+        $phim = Phim::where('tinh_trang','=', '1')->get();
+        $film = Phim::where('tinh_trang','=', '0')->get();
         $tintuc = Tintuc::all();
         return view('home', compact('phim','film','tintuc'));
     }
 
     public function item($id)
     {
-        $phim = Phim::find($id);
-        $lichchieu = Lichchieu::all();
-        $phim = DB::table('phim')->where('phim.id','=', $id)->get();
-        $lichchieu = DB::table('phim')->join('lich_chieu','lich_chieu.id_phim','=','phim.id')
-                                 ->select('phim.*','lich_chieu.*')
-                                 ->where('phim.id','=', $id)->get();
-        return view('fontend.item', compact('phim','lichchieu'));
+        $phim = Phim::where('phim.id','=', $id)->get();
+        $theloai = Phim::find($id)->theloai->name;
+        $luatuoi = Phim::find($id)->luatuoi->name;
+        $lichchieu = Phim::find($id)->lichchieu;
+        return view('fontend.item', compact('phim','theloai','luatuoi','lichchieu'));
     }
 
     public function booking($id)
@@ -60,11 +58,17 @@ class HomeController extends Controller
         $users = Auth::user();
         $phim = Phim::all();
         $chatluong = Chatluong::all();
-        $datve = DB::table('lich_chieu')->join('phim','phim.id','=','lich_chieu.id_phim')
-                                ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
-                                ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
-                                ->select('phim.*','lich_chieu.*','ca_chieu.*','chat_luong.*')
-                                ->where('lich_chieu.id','=', $id)->get();
+        $datve = Lichchieu::join('phim','phim.id','=','lich_chieu.id_phim')
+                    ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
+                    ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
+                    ->select('phim.*','lich_chieu.*','ca_chieu.*','chat_luong.*')
+                    ->where('lich_chieu.id','=', $id)->get();
+
+        // $datve = Lichchieu::with('cachieu', 'chatluong', 'phim' )
+        //             //->select('lich_chieu.*','ca_chieu.*','chat_luong.*', 'phim.*')
+        //             ->where('lich_chieu.id','=', $id)
+        //             ->get();
+        // dd($datve);
         return view('fontend.booking', compact('cachieu','users','phim','lichchieu','chatluong','datve'));
     }
 
@@ -90,26 +94,32 @@ class HomeController extends Controller
     public function ajaxBooking($id)
     {
         $lichchieu = Lichchieu::find($id);
-        $book = DB::table('vct')->join('lich_chieu','vct.id_lichchieu','=','lich_chieu.id')
-                                ->where('lich_chieu.id','=', $id)->pluck('vct.so_ghe');
-        $ghe = json_encode($book);
+        $books = Vct::join('lich_chieu','vct.id_lichchieu','=','lich_chieu.id')
+                    ->where('lich_chieu.id','=', $id)->pluck('vct.so_ghe');
 
-        return Response::json($ghe, 200);
+        return response()->json($books);
     }
 
     public function user(Request $request, $id)
     {
         $i = 1;
         $users = Auth::user();
-        $transactions = DB::table('ve', 'lich_chieu')
-            ->join('vct','vct.id_ve','=','ve.id')
-            ->join('lich_chieu','lich_chieu.id','=','ve.id_lichchieu')    
-            ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
-            ->join('phim','phim.id','=','lich_chieu.id_phim')
-            ->join('phong_chieu','phong_chieu.id','=','lich_chieu.id_phongchieu')
-            ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
-            ->select('ve.*','lich_chieu.*','vct.so_ghe','chat_luong.name as chatluong','phim.img', 'phim.name as phim','phong_chieu.name as phongchieu','ca_chieu.*')
-            ->where('ve.id_user','=', $id)->get();
+        $transactions  = Vct::join('lich_chieu','lich_chieu.id','=','vct.id_lichchieu')
+                            ->join('ve','ve.id','=','vct.id_ve')   
+                            ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
+                            ->join('phim','phim.id','=','lich_chieu.id_phim')
+                            ->join('phong_chieu','phong_chieu.id','=','lich_chieu.id_phongchieu')
+                            ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
+                            ->select('ve.*','lich_chieu.*','vct.so_ghe','chat_luong.name as chatluong','phim.img', 'phim.name as phim','phong_chieu.name as phongchieu','ca_chieu.*')
+                            ->where('ve.id_user','=', $id)->get();
+
+
+
+        
+
+
+        
+        //dd($transactions);
 
         return view('users.profile',compact('users', 'transactions','i'));
     }
@@ -214,5 +224,12 @@ class HomeController extends Controller
         $search_key = $request -> search_name;
         $search_key = Phim::where('name','like',"%$search_key%")->get();
         return view('home_search', compact('users', 'search_key', 'tintuc'));
+    }
+
+    //Movie Home
+    public function getMovie()
+    {
+        $phim = Phim::all();
+        return view('fontend/movie', compact('phim'));
     }
 }

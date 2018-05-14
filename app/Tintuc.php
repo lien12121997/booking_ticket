@@ -10,4 +10,9 @@ class Tintuc extends Model
     protected $fillable = [
         'title', 'id_loaitin', 'date'
     ];
+
+    public function loaitin()
+    {
+    	return $this->belongsTo('App\Loaitin', 'id_loaitin', 'id');
+    }
 }

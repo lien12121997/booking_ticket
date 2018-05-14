@@ -20,13 +20,15 @@
                     @elseif($phim->tinh_trang == 0)
                         Sắp Chiếu
                     @endif</p>
-                <p style="padding-bottom: 15px;"><b>Thời lượng:</b> {{$phim -> do_dai}} phút</p>
-                <p style="padding-bottom: 15px;"><b>Ngày khởi chiếu:</b> {{$phim -> date_khoichieu}}</p>
+                <p style="padding-bottom: 15px;"><b>Thời lượng: </b> {{$phim -> do_dai}} phút</p>
+                <p style="padding-bottom: 15px;"><b>Thể Loại: </b> {{$theloai}} </p>
+                <p style="padding-bottom: 15px;"><b>Độ Tuổi: </b> {{$luatuoi}} </p>
+                <p style="padding-bottom: 15px;"><b>Ngày khởi chiếu: </b> {{$phim -> date_khoichieu}}</p>
             </div>
         @endforeach
-            <p><b>Lịch chiếu</b></p> 
+            <p><b>Lịch chiếu: </b></p> 
             @foreach($lichchieu as $lichchieu)
-            <a href="{{url('booking/'.$lichchieu -> id_cachieu)}}" class="btn btn-sub">Ca {{$lichchieu -> id_cachieu}}</a>
+            <a href="{{url('booking/'.$lichchieu -> id)}}" class="btn btn-sub">Ca {{$lichchieu -> id_cachieu}}</a>
             @endforeach
         </div>
         

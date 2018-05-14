@@ -8,7 +8,7 @@
             <div class="nav-wrap">
                 <ul class="group" id="example-one">
                    <li class="current_page_item"><a href="{{url('home')}}">Home</a></li>
-                   <li><a href="#movie" class="tab-menu-click">Movies</a></li>
+                   <li><a href="{{url('movie')}}" class="tab-menu-click">Movies</a></li>
                    <li><a href="#event" class="tab-menu-click">Events</a></li>
                    <li><a href="{{url('contact')}}">Contact</a></li>
                    @guest

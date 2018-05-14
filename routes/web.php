@@ -15,7 +15,10 @@ Route::get('home', 'HomeController@index');
 Route::get('item/{id}', 'HomeController@item');
 Route::get('booking/{id}', 'HomeController@booking');
 Route::post('booking', 'HomeController@postInsertBooking')->name('booking');
+Route::get('showGhe/{id}', 'HomeController@ajaxBooking');
+
 Route::get('contact', 'HomeController@getContact');
+Route::get('movie', 'HomeController@getMovie');
 Route::post('contact', 'HomeController@postContact');
 Route::post('search', 'HomeController@postSearch');
 
@@ -31,7 +34,6 @@ Route::get('updateUser/{id}','HomeController@getUpdateUser');
 Route::post('updateUser/{id}','HomeController@postUpdateUser');
 Route::get('updatePass/{id}','HomeController@getUpdatePass');
 Route::post('updatePass/{id}','HomeController@postUpdatePass');
-
 
 
 Route::group(['prefix'=>'cachieu'],function(){
@@ -131,4 +133,14 @@ Route::group(['prefix'=>'vct'],function(){
 
 Auth::routes();
 
-
+//Admin
+Route::group(['prefix'=>'admin'],function(){
+	Route::get('home', 'adminController@index');
+	Route::get('listuser', 'adminController@listUser');
+	Route::get('userprofile/{id}', 'adminController@userProfile');
+	Route::get('create', 'AuthAdminController@create');
+	Route::post('create', 'AuthAdminController@store');
+	Route::get('profile/{id}', 'adminController@profile');
+	Route::get('editAdminPass/{id}', 'ChangePassController@changePassAdmin');
+	Route::post('editAdminPass/{id}', 'ChangePassController@postchangePassAdmin');
+	});

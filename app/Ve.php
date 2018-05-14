@@ -10,4 +10,9 @@ class Ve extends Model
     protected $fillable = [
         'id_user', 'id_lichchieu', 'qty', 'price' , 'date'
     ];
+
+    public function user()
+    {
+    	return $this->belongsTo( 'App\User', 'id_user', 'id');
+    }
 }
