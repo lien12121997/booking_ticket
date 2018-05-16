@@ -13,8 +13,11 @@ class lichchieuController extends Controller
 {
     public function getList()
     {
+        $chatluong = Chatluong::all();
         $lichchieu = Lichchieu::all();
-        return view('lichchieu.list',compact('lichchieu'));
+        $phongchieu = Phongchieu::all();
+        $cachieu = Cachieu::all();
+        return view('lichchieu.list',compact('lichchieu', 'chatluong', 'phongchieu', 'cachieu'));
     }
 
     public function getInsert()

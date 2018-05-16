@@ -29,9 +29,17 @@
 	color: white;
 	font-weight: bold;
 }
+.btn-img {
+	width: 86%;
+}
+.btn-img img {
+	width: 100%;
+}
+
 .purple {
 	background: #007700;
 	padding: 10px;
+	text-align: center;
 }
 .red {
 	background: #CC0000;
@@ -39,4 +47,15 @@
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    text-align: center;
+}
+.insert {
+	background: #330099;
+    padding: 10px;
+    width: 92px !important;
+    text-align: center;
+}
+.insert a {
+	color: white;
+	font-weight: bold;
 }

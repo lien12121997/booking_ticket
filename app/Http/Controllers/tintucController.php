@@ -10,8 +10,9 @@ class tintucController extends Controller
 {
     public function getList()
     {
+        $loaitin = Loaitin::all();
         $tintuc = Tintuc::all();
-        return view('tintuc.list',compact('tintuc'));
+        return view('tintuc.list',compact('tintuc', 'loaitin'));
     }
 
     public function getInsert()

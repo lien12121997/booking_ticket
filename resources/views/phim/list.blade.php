@@ -11,7 +11,7 @@
                     <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                 </ul>
                 <div class="clearfix"></div>
-                <br><p class="insert"><a href="insert"><i class="fa fa-plus-square"></i> Isnert </a></p><br>
+                <br><p class="insert"><a href="insert">Insert <i class="fa fa-plus-square"></i></a></p><br>
             </div>
 
             <div class="x_content">

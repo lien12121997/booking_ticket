@@ -6,7 +6,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Movies List </h2>
+        <h2>Movies Edit </h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
           <li><a class="close-link"><i class="fa fa-close"></i></a></li>
@@ -83,15 +83,17 @@
                   <img src="{{ asset('images/Layer2.png') }}">
                 </button>
               </div>
-              <div class="form-group form--img">
-                <div class="img--product box-preview-img"></div>
+               <div class="form-group form--img">
+                <div class="img--product box-preview-img">
+                  <img id="thumb" src="{{asset('images/'.$phim->img)}}" />
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col-md-9" style="text-align: center;">
-            <button class="btn btn-sub" type="submit" value="Insert">Insert</button>
-            <button class="btn btn-sub" type="reset" value="Reset">Reset</button>
+            <button class="btn btn-success" type="submit" value="Insert">Update</button>
+            <button class="btn btn-primary" type="reset" value="Reset">Reset</button>
           </div>
         </div>
       </form>

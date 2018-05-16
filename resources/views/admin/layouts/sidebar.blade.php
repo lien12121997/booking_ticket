@@ -31,16 +31,36 @@
                       <li><a href="{{asset('admin/listuser')}}">List User</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Movies <span class="fa fa-chevron-down"></span></a>
+                  <li><a> <i class="fa fa-film"></i>Movies <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{asset('phim/list')}}">List Movies</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> Categorys <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-newspaper-o"></i> News <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{asset('categorys/list')}}">List Categorys</a></li>
+                      <li><a href="{{asset('tintuc/list')}}">News</a></li>
+                      <li><a href="{{asset('loaitin/list')}}">Type Of News</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-desktop"></i> Show Time <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{asset('lichchieu/list')}}">Show Time</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="{{asset('theloai/list')}}"><i class="fa fa-table"></i> Categorys 
+                    <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                  <!-- <li><a href="{{asset('chatluong/list')}}"><i class="fa fa-star-half-empty"></i> Qualitys 
+                    <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                  <li><a href="{{asset('phongchieu/list')}}"><i class="fa fa-desktop"></i> Rooms 
+                    <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                  <li><a href="{{asset('luatuoi/list')}}"><i class="fa fa-user"></i> Ages 
+                    <span class="fa fa-chevron-down"></span></a>
+                  </li> -->
+                  
+              
                   <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="chartjs.html">Chart JS</a></li>

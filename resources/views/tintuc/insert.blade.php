@@ -1,34 +1,41 @@
-@extends('layouts.app')
+@extends('admin.layouts.master')
 
 @section('content')
 
-<div class="sidebar col-md-3">
-  @include('layouts.sidebar')
-</div>
-<div class="content col-md-9">
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>New Insert </h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+          <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
 
-  <h1 class="head--title">Thêm Tin Tức</h1>
+      <div class="x_content">
+      <br />
 
-    <div class="container-fluid">
       <form action="" method="POST" class="form-ins" enctype="multipart/form-data" id="upload">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-8">
               <div class="form-group">
-                  <div class="product-title">Title</div>
-                  <input class="form-control" name="title" placeholder="Enter Name" />
+                  <div class="product-title">Title *</div>
+                  <input class="form-control" name="title" placeholder="Enter Title" />
               </div>
               <div class="form-group">
-                  <div class="product-title">Describe</div>
-                  <textarea class="form-control" name="content"></textarea>
+                  <div class="product-title">Describe *</div>
+                  <textarea class="form-control" name="content" rows="10px"></textarea>
               </div>
 
               <div class="form-group">
-                  <div class="product-title">Author</div>
+                  <div class="product-title">Author *</div>
                   <input class="form-control" name="author" placeholder="Enter Author" />
               </div>
               <div class="form-group">
-                  <div class="product-title">Kinds</div>
+                  <div class="product-title">Kinds *</div>
                   <select class="form-control form-select" name="id_loaitin">
                     @foreach($loaitin as $loaitin)
                       <option value="{{$loaitin ->id}}">{{$loaitin->name}}</option>
@@ -43,25 +50,27 @@
 
             <div class="form-group col-md-3">
             <div class="add--img">
-              <div class="product-title">Add Image</div>
               <div class="form-group form--img">
-                <input type="file" name="img" class="file" id="imageUpload" multiple onchange="previewImg(event);">
+                <input type="file" name="file" class="file hidden" id="imageUpload" multiple onchange="previewImg(event);">
                 <button class="browse btn btn-img" type="button">
-                  <img src="{{ asset('images/movie.png') }}" width="100px" height="100px">
+                  <img src="{{ asset('images/Layer2.png') }}">
                 </button>
-                <div class="box-preview-img"></div>
+              </div>
+              <div class="form-group form--img">
+                <div class="img--product box-preview-img"></div>
               </div>
             </div>
           </div>
 
-            <div class="col-md-9" style="text-align: center;">
-              <button class="btn btn-sub" type="submit" value="Insert">Insert</button>
-              <button class="btn btn-sub" type="reset" value="Reset">Reset</button>
-            </div>
+          <div class="col-md-9" style="text-align: center;">
+            <button class="btn btn-success" type="submit" value="Insert">Insert</button>
+            <button class="btn btn-primary" type="reset" value="Reset">Reset</button>
+          </div>
         </div>
       <form>
-            <!-- /.container-fluid -->
+    </div>
   </div>
+</div>
 </div>
 
 @endsection
