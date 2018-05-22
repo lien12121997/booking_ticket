@@ -53,6 +53,7 @@ class LoginController extends Controller
         $users -> name = $request -> name;
         $users -> email = $request -> email;
         $users -> password = $request -> password;
+        $users -> role = 0;
         $users -> save();
         return redirect('login');
 

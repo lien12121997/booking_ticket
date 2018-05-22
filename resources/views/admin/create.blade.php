@@ -106,7 +106,7 @@
         </style>
     </head>
     <body>
-      <form method="post">
+      <form method="post" style="margin-top: 30px" >
         {{ csrf_field() }}
         
         <h1>Sign Up</h1>

@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Login Admim</title>
-	<meta charset="UTF-8">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link href="{{asset('css/util.css')}}" rel="stylesheet">
-	<link href="{{asset('css/main_admin.css')}}" rel="stylesheet">
-	<link href="{{asset('css/material-design-iconic-font.min.css')}}" rel="stylesheet">
-	<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
- 	<script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
-</head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="alert alert-danger error errorlogin" style="display: none;" >
-	                <p style="color:red; display: none" class="error errorloginadmin"></p>
-	            </div>
-				<form class="login100-form " method="POST" action="">
-					{{ csrf_field() }}
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-					<span class="login100-form-title p-b-26">
-						Welcome
-					</span>
-					<div class="wrap-input100 validate-input">
-						<p>Username</p>
-						<input class="input100" type="text" name="useradmin" id="useradmin">
-						<!-- <span class="focus-input100" data-placeholder="Username"></span> -->
-						<p style="color:red; display:none; font-weight: bold" class="error erroruseradmin"></p>
-					</div>
+    <title>Administration </title>
 
-					<div class="wrap-input100 validate-input">
-						<p>Password</p>
-						<input class="input100" type="password" name="password" id="password">
-						<!-- <span class="focus-input100" data-placeholder="Password"></span> -->
-						<p style="color:red; display:none; font-weight:bold" class="error errorpass"></p>
-					</div>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
 
-					<div class="container-login100-form-btn" style="padding-bottom: 30px;">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="submit" value="{{ csrf_token() }}"
-									id="admin_submit" name="admin_submit">Login</button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+<body class="login">
+
+<a class="hiddenanchor" id="signup"></a>
+<a class="hiddenanchor" id="signin"></a>
+
+<div class="login_wrapper">
+    <div class="animate form login_form">
+  	<section class="login_content">
+        @if(session('error'))
+            <div class="alert alert-primary" style="font-size: 17px">
+                {{session('error')}}      
+            </div>
+        @endif
+
+        <form method="POST">
+        	{{ csrf_field() }}
+
+            <div class="alert alert-danger" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p style="color:red; display:none;" class="error errorlogin"></p>
+            </div>
+
+            <h1>Login Form</h1>
+            <div>
+            	<input type="text" class="form-control" placeholder="Username" name="email" id="email"/>
+            	<p style="color:red; display:none; font-weight: bold" class="error erroremail"></p>
+            </div>
+            <div>
+            	<input type="password" class="form-control" placeholder="Password" name="password" id="password" />
+            	<p style="color:red; display:none; font-weight:bold" class="error errorpassword"></p>
+            </div>
+            <div>
+                <button class="btn btn-default submit" type="submit" value="{{ csrf_token() }}" id="admin_submit" 		  name="admin_submit">Login</button>
+            </div>
+        	<div class="clearfix"></div>
+        	<div class="clearfix"></div>
+            <br />
+
+            <div>
+              	<h1><i class="fa fa-paw"></i> Cinema Center!</h1>
+              	<p>©2016 All Rights Reserved. National Cinema Center! VinCom Center 8th floor, 379 Pham Ngoc Thach St, Viet Nam</p>
+            </div>
+        </form>
+  	</section>
+    </div>
+</div>
+<!-- <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script> -->
+<!-- <script src="{{asset('js/admin.js')}}"></script> -->
 </body>
 </html>

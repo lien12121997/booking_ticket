@@ -15,6 +15,7 @@ use App\Chatluong;
 use App\Ve;
 use App\Vct;
 use App\Tintuc;
+use App\Infomation;
 use DB;
 
 class HomeController extends Controller
@@ -105,21 +106,13 @@ class HomeController extends Controller
         $i = 1;
         $users = Auth::user();
         $transactions  = Vct::join('lich_chieu','lich_chieu.id','=','vct.id_lichchieu')
-                            ->join('ve','ve.id','=','vct.id_ve')   
-                            ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
-                            ->join('phim','phim.id','=','lich_chieu.id_phim')
-                            ->join('phong_chieu','phong_chieu.id','=','lich_chieu.id_phongchieu')
-                            ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
-                            ->select('ve.*','lich_chieu.*','vct.so_ghe','chat_luong.name as chatluong','phim.img', 'phim.name as phim','phong_chieu.name as phongchieu','ca_chieu.*')
-                            ->where('ve.id_user','=', $id)->get();
-
-
-
-        
-
-
-        
-        //dd($transactions);
+            ->join('ve','ve.id','=','vct.id_ve')   
+            ->join('chat_luong','chat_luong.id','=','lich_chieu.id_chatluong')
+            ->join('phim','phim.id','=','lich_chieu.id_phim')
+            ->join('phong_chieu','phong_chieu.id','=','lich_chieu.id_phongchieu')
+            ->join('ca_chieu','ca_chieu.id','=','lich_chieu.id_cachieu')
+            ->select('ve.*','lich_chieu.*','vct.so_ghe','chat_luong.name as chatluong','phim.img', 'phim.name as phim','phong_chieu.name as phongchieu','ca_chieu.*')
+            ->where('ve.id_user','=', $id)->get();
 
         return view('users.profile',compact('users', 'transactions','i'));
     }
@@ -189,7 +182,8 @@ class HomeController extends Controller
     //Contact Home
     public function getContact()
     {
-        return view('fontend.contact');
+        $infomation = Infomation::all();
+        return view('fontend.contact', compact('infomation'));
     }
 
     public function postContact(Request $request)

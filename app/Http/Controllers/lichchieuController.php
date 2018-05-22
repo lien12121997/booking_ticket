@@ -8,6 +8,7 @@ use App\Phim;
 use App\Chatluong;
 use App\Phongchieu;
 use App\Cachieu;
+use App\Pcct;
 
 class lichchieuController extends Controller
 {
@@ -16,8 +17,9 @@ class lichchieuController extends Controller
         $chatluong = Chatluong::all();
         $lichchieu = Lichchieu::all();
         $phongchieu = Phongchieu::all();
+        $pcct = Pcct::all();
         $cachieu = Cachieu::all();
-        return view('lichchieu.list',compact('lichchieu', 'chatluong', 'phongchieu', 'cachieu'));
+        return view('lichchieu.list',compact('lichchieu', 'chatluong', 'phongchieu', 'cachieu', 'pcct'));
     }
 
     public function getInsert()

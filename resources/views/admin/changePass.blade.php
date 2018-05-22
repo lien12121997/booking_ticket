@@ -9,11 +9,20 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  	@if(session('error'))
-		                <div class="alert alert-danger" role="alert" style=" margin-top: 20px;">
-		                    {{session('error')}}      
-		                </div>
-		            @endif
+                    @if(session('error'))
+                        <div class="alert alert-success" style="font-size: 15px">
+                            {{session('error')}}      
+                        </div>
+                    @endif
+                    @if(count($errors) > 0)
+                    <div class="alert alert-success" style="font-size: 15px">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <br />
                     <form id="demo-form2" method="POST" action="" class="form-horizontal form-label-left">
                     	<input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -22,15 +31,16 @@
 	                        	Current Password <span class="required">*</span>
 	                        </label>
 	                        <div class="col-md-6 col-sm-6 col-xs-12">
-	                            <input type="password" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="passoldadmin">
+	                            <input type="password" id="passwordOld" class="form-control col-md-7 col-xs-12" name="passwordOld">
 	                        </div>
+           
                       	</div>
                       	<div class="form-group">
 	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
 	                        	New Password <span class="required">*</span>
 	                        </label>
 	                        <div class="col-md-6 col-sm-6 col-xs-12">
-	                            <input type="password" id="last-name" required="required" class="form-control col-md-7 col-xs-12" name="passnewadmin" >
+	                            <input type="password" id="passwordNew" class="form-control col-md-7 col-xs-12" name="passwordNew" >
 	                        </div>
                       	</div>
                      	<div class="ln_solid"></div>

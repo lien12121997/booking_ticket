@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-<div class="" role="tabpanel" data-example-id="togglable-tabs">
+<div class="tabpanel" role="tabpanel" data-example-id="togglable-tabs">
     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
         <li role="presentation" class="active">
             <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Movies</a>
@@ -17,7 +17,6 @@
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                 </ul>
-                <div class="clearfix"></div>
                 <br><p class="insert"><a href="insert">Insert <i class="fa fa-plus-square"></i></a></p><br>
             </div>
 

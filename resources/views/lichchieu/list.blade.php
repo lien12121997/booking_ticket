@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-<div class="" role="tabpanel" data-example-id="togglable-tabs">
+<div class="tabpanel" role="tabpanel" data-example-id="togglable-tabs">
     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
         <li role="presentation" class="active">
             <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Show Time</a>
@@ -13,7 +13,10 @@
             <a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Rooms</a>
         </li>
         <li role="presentation" class="">
-            <a href="#tab_content4" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Time Frame</a>
+            <a href="#tab_content4" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Detail Rooms</a>
+        </li>
+        <li role="presentation" class="">
+            <a href="#tab_content5" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Show Case</a>
         </li>
     </ul>
     <div id="myTabContent" class="tab-content">
@@ -23,7 +26,6 @@
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                 </ul>
-                <div class="clearfix"></div>
                 <br><p class="insert"><a href="insert">Insert <i class="fa fa-plus-square"></i></a></p><br>
             </div>
 
@@ -144,8 +146,42 @@
             </div>
         </div>
 
-
         <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+            <div class="x_title">
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <br>
+            </div>
+
+            <div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th>Code</th>
+                            <th>Title</th>
+                            <th colspan="2"><a href="insert">Add</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($pcct as $pcct)
+                        <tr>
+                            <td>{{$pcct -> id}}</td>
+                            <td>{{$pcct -> id_ghe}}</td>
+                            <td>{{$pcct -> id_phongchieu}}</td>
+                            <td><a href="update/{{$categories -> id}}"> Update</a></td>
+                            <td><a href="delete/{{$categories -> id}}">Delete</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
             <div class="x_title">
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>

@@ -6,7 +6,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Edit </h2>
+        <h2>Edit Category New</h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
           <li><a class="close-link"><i class="fa fa-close"></i></a></li>
@@ -25,7 +25,7 @@
                   <input class="form-control" name="name" value="{{$loaitin -> name}}" />
               </div>
               <div class="col-md-9" style="text-align: center;">
-                <button class="btn btn-success" type="submit" value="Insert">Update</button>
+                <button class="btn btn-success" type="submit" value="Update">Update</button>
                 <button class="btn btn-primary" type="reset" value="Reset">Reset</button>
           </div>
         </div>

@@ -67,11 +67,10 @@
 				<div class="txt1 p-r-25">
 					<span class="lnr lnr-map-marker"></span>
 				</div>
+                @foreach($infomation as $infomation)
 				<div class="flex-col size2">
 					<span class="txt1 p-b-20"> Address </span>
-					<span class="txt2">
-						VinCom Center 8th floor, 379 Pham Ngoc Thach St, Viet Nam
-					</span>
+					<span class="txt2">{{ $infomation->address}}</span>
 				</div>
 			</div>
 
@@ -82,7 +81,7 @@
 
 				<div class="flex-col size2">
 					<span class="txt1 p-b-20"> Lets Talk </span>
-					<span class="txt3"> +1 800 1236879 </span>
+					<span class="txt3">{{ $infomation->hotline}}</span>
 				</div>
 			</div>
 
@@ -93,9 +92,10 @@
 
 				<div class="flex-col size2">
 					<span class="txt1 p-b-20"> General Support </span>
-					<span class="txt3"> contact@example.com </span>
+					<span class="txt3">{{ $infomation->support}}</span>
 				</div>
 			</div>
+			@endforeach
 		</div>
 	</div>
 </div>

@@ -12,6 +12,9 @@
 .product_gallery a {
     height: auto!important;
 }
+.tabpanel {
+	margin-top: 90px !important;
+}
 
 /*__________________________Flim_____________________________*/
 
@@ -58,4 +61,13 @@
 .insert a {
 	color: white;
 	font-weight: bold;
+}
+
+/*_______________Infomation_______________*/
+.img-infor {
+    padding-bottom: 30px;
+}
+.preview-info img {
+	width: 71% !important;
+    padding-top: 0px !important; 
 }

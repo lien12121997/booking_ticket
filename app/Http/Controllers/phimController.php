@@ -11,8 +11,9 @@ class phimController extends Controller
 {
     public function getList()
     {
+        $theloai = Theloai::all();
         $phim = Phim::all();
-        return view('phim.list',compact('phim'));
+        return view('phim.list',compact('phim', 'theloai'));
     }
 
     public function getInsert()

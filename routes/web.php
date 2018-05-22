@@ -124,6 +124,16 @@ Route::group(['prefix'=>'tintuc'],function(){
 		Route::post('update/{id}','tintucController@postUpdate');
 		Route::get('delete/{id}','tintucController@getDelete');
 	});
+Route::group(['prefix'=>'infomation'],function(){
+		Route::get('list','InfomationController@getList');
+		Route::get('insert','InfomationController@getInsert');
+		Route::post('insert','InfomationController@postInsert');
+		Route::get('update/{id}','InfomationController@getUpdate');
+		Route::post('update/{id}','InfomationController@postUpdate');
+		Route::get('delete/{id}','InfomationController@getDelete');
+	});
+
+
 Route::group(['prefix'=>'ve'],function(){
 		Route::get('list','veController@getList');
 	});
@@ -135,12 +145,15 @@ Auth::routes();
 
 //Admin
 Route::group(['prefix'=>'admin'],function(){
+	Route::get('create', 'AuthAdminController@createAdmin');
+	Route::post('create', 'AuthAdminController@storeAdmin');
+	Route::get('login', 'AuthAdminController@loginAdmin');
+	Route::post('login', 'AuthAdminController@postloginAdmin');
+	Route::get('logout', 'AuthAdminController@logoutAdmin');
 	Route::get('home', 'adminController@index');
 	Route::get('listuser', 'adminController@listUser');
 	Route::get('userprofile/{id}', 'adminController@userProfile');
-	Route::get('create', 'AuthAdminController@create');
-	Route::post('create', 'AuthAdminController@store');
-	Route::get('profile/{id}', 'adminController@profile');
-	Route::get('editAdminPass/{id}', 'ChangePassController@changePassAdmin');
-	Route::post('editAdminPass/{id}', 'ChangePassController@postchangePassAdmin');
-	});
+	Route::get('profile/{id}', 'adminController@AdminProfile');
+	Route::get('changepass/{id}', 'adminController@changePassAdmin');
+	Route::post('changepass/{id}', 'adminController@postchangePassAdmin');
+});
